@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://51v5p3mx0fcq"]
+
+[ext_resource type="Script" path="res://src/Scripts/Puncher.gd" id="1_7jjp4"]
+[ext_resource type="Texture2D" uid="uid://w1venhmt6tg6" path="res://Assets/Sprites/50-Breakout-Tiles.png" id="2_ifdbx"]
+[ext_resource type="Texture2D" uid="uid://dr7ki2v8o8gah" path="res://Assets/Sprites/51-Breakout-Tiles.png" id="3_v1tgl"]
+[ext_resource type="Texture2D" uid="uid://dypfejdim1r74" path="res://Assets/Sprites/52-Breakout-Tiles.png" id="4_2ncb6"]
+[ext_resource type="Texture2D" uid="uid://csqnjvcrgnosf" path="res://Assets/Sprites/53-Breakout-Tiles.png" id="5_4lv2r"]
+[ext_resource type="Texture2D" uid="uid://d2upol33j5fq6" path="res://Assets/Sprites/54-Breakout-Tiles.png" id="6_fwo8m"]
+[ext_resource type="Texture2D" uid="uid://cb6bx00x46lr6" path="res://Assets/Sprites/55-Breakout-Tiles.png" id="7_o3jgm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wiodc"]
+size = Vector2(4000, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpa0u"]
+radius = 18.0135
+height = 147.95
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gj0pv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ifdbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_v1tgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2ncb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4lv2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fwo8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_o3jgm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Puncher" type="CharacterBody2D"]
+collision_mask = 5
+motion_mode = 1
+slide_on_ceiling = false
+script = ExtResource("1_7jjp4")
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(0, 13)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(-1, 16)
+shape = SubResource("RectangleShape2D_wiodc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5865
+shape = SubResource("CapsuleShape2D_qpa0u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_gj0pv")
+frame_progress = 0.757667
+
+[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtacywbkkiyly"]
+
+[ext_resource type="Script" path="res://src/Scenes/menu.gd" id="1_e71u5"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_e71u5")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="GridContainer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://djatnd7bki2dk"]
+
+[ext_resource type="Script" path="res://src/Scripts/Ball.gd" id="1_hcd58"]
+[ext_resource type="Texture2D" uid="uid://cqpvmb20w1a" path="res://Assets/Sprites/Breakout_Tile_Free.png" id="2_etnye"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o0jjb"]
+radius = 515.984
+
+[node name="Ball" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 13
+motion_mode = 1
+script = ExtResource("1_hcd58")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_etnye")
+region_enabled = true
+region_rect = Rect2(1402.12, 651.554, 65.5424, 64.3857)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.0625, 0.0625)
+shape = SubResource("CircleShape2D_o0jjb")

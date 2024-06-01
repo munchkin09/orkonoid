@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://6ie11o0eq3pl"]
+
+[ext_resource type="Script" path="res://src/Scripts/Brick.gd" id="1_uqbk6"]
+[ext_resource type="Texture2D" uid="uid://cqpvmb20w1a" path="res://Assets/Sprites/Breakout_Tile_Free.png" id="2_uac42"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6ae7"]
+size = Vector2(114, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyr8b"]
+atlas = ExtResource("2_uac42")
+region = Rect2(772, 387, 386, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xgba"]
+atlas = ExtResource("2_uac42")
+region = Rect2(0, 0, 386, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg4nk"]
+atlas = ExtResource("2_uac42")
+region = Rect2(386, 129, 386, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c723q"]
+atlas = ExtResource("2_uac42")
+region = Rect2(386, 0, 386, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tki4i"]
+atlas = ExtResource("2_uac42")
+region = Rect2(772, 0, 386, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b55sa"]
+atlas = ExtResource("2_uac42")
+region = Rect2(772, 645, 386, 129)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tavck"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyr8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xgba")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg4nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c723q")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tki4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b55sa")
+}],
+"loop": true,
+"name": &"orange",
+"speed": 5.0
+}]
+
+[node name="Brick" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_uqbk6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_k6ae7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_tavck")
+animation = &"blue"
