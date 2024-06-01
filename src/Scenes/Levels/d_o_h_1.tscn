@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://oafcwgoic65m"]
 
-[ext_resource type="Script" path="res://src/Scripts/d_o_h.gd" id="1_u25vw"]
-[ext_resource type="PackedScene" uid="uid://6ie11o0eq3pl" path="res://src/Scenes/Brick.tscn" id="2_ml87t"]
-[ext_resource type="PackedScene" uid="uid://djatnd7bki2dk" path="res://src/Scenes/Ball.tscn" id="3_ahc24"]
-[ext_resource type="PackedScene" uid="uid://51v5p3mx0fcq" path="res://src/Scenes/Puncher.tscn" id="4_wufg2"]
+[ext_resource type="Script" path="res://src/Scripts/d_o_h.gd" id="1_xoalq"]
+[ext_resource type="PackedScene" uid="uid://6ie11o0eq3pl" path="res://src/Scenes/Brick.tscn" id="2_gw6gj"]
+[ext_resource type="PackedScene" uid="uid://djatnd7bki2dk" path="res://src/Scenes/Ball.tscn" id="3_1t1kx"]
+[ext_resource type="PackedScene" uid="uid://51v5p3mx0fcq" path="res://src/Scenes/Puncher.tscn" id="4_tb2f3"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_omfqg"]
 b = Vector2(-2, 658)
@@ -15,15 +15,15 @@ b = Vector2(1, 665)
 b = Vector2(1150, -1)
 
 [node name="DoH_1" type="Node2D"]
-script = ExtResource("1_u25vw")
-brick = ExtResource("2_ml87t")
-ball = ExtResource("3_ahc24")
+script = ExtResource("1_xoalq")
+brick = ExtResource("2_gw6gj")
+ball = ExtResource("3_1t1kx")
 
-[node name="Puncher" parent="." instance=ExtResource("4_wufg2")]
+[node name="Puncher" parent="." instance=ExtResource("4_tb2f3")]
 position = Vector2(576, 635)
 collision_mask = 6
 
-[node name="Ball" parent="." instance=ExtResource("3_ahc24")]
+[node name="Ball" parent="." instance=ExtResource("3_1t1kx")]
 position = Vector2(581, 528)
 scale = Vector2(0.3, 0.3)
 

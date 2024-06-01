@@ -39,8 +39,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1xgba")
 }],
-"loop": true,
-"name": &"blue",
+"loop": false,
+"name": &"blue_hard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyr8b")
+}],
+"loop": false,
+"name": &"blue_soft",
 "speed": 5.0
 }, {
 "frames": [{
@@ -50,8 +58,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c723q")
 }],
-"loop": true,
-"name": &"green",
+"loop": false,
+"name": &"green_hard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg4nk")
+}],
+"loop": false,
+"name": &"green_soft",
 "speed": 5.0
 }, {
 "frames": [{
@@ -61,8 +77,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b55sa")
 }],
-"loop": true,
-"name": &"orange",
+"loop": false,
+"name": &"orange_hard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tki4i")
+}],
+"loop": false,
+"name": &"orange_soft",
 "speed": 5.0
 }]
 
@@ -77,4 +101,4 @@ shape = SubResource("RectangleShape2D_k6ae7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_tavck")
-animation = &"blue"
+animation = &"orange_soft"

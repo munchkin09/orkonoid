@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bk30377p12moe"]
+
+[ext_resource type="Script" path="res://src/Scripts/d_o_h_2.gd" id="1_ixmeb"]
+[ext_resource type="PackedScene" uid="uid://6ie11o0eq3pl" path="res://src/Scenes/Brick.tscn" id="2_r4oyo"]
+[ext_resource type="PackedScene" uid="uid://djatnd7bki2dk" path="res://src/Scenes/Ball.tscn" id="3_6v7pi"]
+[ext_resource type="PackedScene" uid="uid://51v5p3mx0fcq" path="res://src/Scenes/Puncher.tscn" id="4_k8cqp"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_omfqg"]
+b = Vector2(-2, 658)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u8ufy"]
+b = Vector2(1, 665)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lfij7"]
+b = Vector2(1150, -1)
+
+[node name="DoH_2" type="Node2D"]
+script = ExtResource("1_ixmeb")
+brick = ExtResource("2_r4oyo")
+ball = ExtResource("3_6v7pi")
+
+[node name="Puncher" parent="." instance=ExtResource("4_k8cqp")]
+position = Vector2(576, 635)
+collision_mask = 6
+
+[node name="Ball" parent="." instance=ExtResource("3_6v7pi")]
+position = Vector2(581, 528)
+scale = Vector2(0.3, 0.3)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 322)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_omfqg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1151, 0)
+shape = SubResource("SegmentShape2D_u8ufy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_lfij7")
+
+[connection signal="ball_punched" from="Puncher" to="Ball" method="_on_puncher_ball_punched"]
