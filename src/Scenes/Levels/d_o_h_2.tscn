@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bk30377p12moe"]
 
-[ext_resource type="Script" path="res://src/Scripts/d_o_h_2.gd" id="1_ixmeb"]
+[ext_resource type="Script" path="res://src/Scripts/Levels/d_o_h_2.gd" id="1_ixmeb"]
 [ext_resource type="PackedScene" uid="uid://6ie11o0eq3pl" path="res://src/Scenes/Brick.tscn" id="2_r4oyo"]
 [ext_resource type="PackedScene" uid="uid://djatnd7bki2dk" path="res://src/Scenes/Ball.tscn" id="3_6v7pi"]
 [ext_resource type="PackedScene" uid="uid://51v5p3mx0fcq" path="res://src/Scenes/Puncher.tscn" id="4_k8cqp"]

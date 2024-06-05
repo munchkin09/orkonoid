@@ -2,35 +2,55 @@ class_name Brick extends CharacterBody2D
 
 signal brick_hit
 var remaining_hits: int = 1
+@onready var sprite = $AnimatedSprite2D
 
 const COLORS_BRICKS: Dictionary = {
 	'b':'blue',
 	'g':'green',
 	'o':'orange'
 }
+
 const KIND_BRICKS: Dictionary = {
 	's':'soft',
 	'h':'hard',
-	'o':'orange'
+	'u':'unbreakable'
 }
 
-@onready var sprite = $AnimatedSprite2D
+const properties_per_brick: Dictionary = {
+	'unbreakable': {
+		
+	}
+}
 
-func _ready():
-	pass
-	
+var brick_data = {
+}
+
 func set_color(key: String):
-	sprite.animation = COLORS_BRICKS[key]
+	sprite.animation = key
 
 func setup(data: String):
-	var color_brick = COLORS_BRICKS[data[1]]
-	var hardness_brick = KIND_BRICKS[data[2]]
-	var formed_brick = '%s_%s'
-	var formatter_brick_setup = formed_brick % [color_brick, hardness_brick]
-	sprite.animation = formatter_brick_setup
-	if hardness_brick == 'hard':
-		remaining_hits = 2
+	brick_data = parserData(data)
+	set_color(brick_data['formatted'])
+	match brick_data['hardness']:
+		'hard':
+			remaining_hits = 2
+		'unbreakable':
+			remaining_hits = 1000
 
 func update_remaining_hits():
 	sprite.frame = 1
 	remaining_hits -= 1
+
+
+func parserData(data: String) -> Dictionary:
+	var kind_brick = data[0]
+	var color_brick = COLORS_BRICKS[data[1]]
+	var hardness_brick = KIND_BRICKS[data[2]]
+	var formed_brick = '%s_%s'
+	brick_data = {
+		'kind': kind_brick,
+		'color': color_brick,
+		'hardness': hardness_brick,
+		'formatted': formed_brick % [color_brick, hardness_brick]
+	}
+	return brick_data

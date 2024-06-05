@@ -8,11 +8,13 @@ var level_to_load
 func enter():
 	goto_scene(level_to_load)
 
+func exit():
+	print("level loaded succesfully")
+
 func goto_scene(_path):
 	call_deferred("_deferred_goto_scene", _path)
 
 func _deferred_goto_scene(new_scene_path):
-
 	var s = ResourceLoader.load(new_scene_path)
 	current_scene = s.instantiate()
 	current_scene.add_to_group('current_scene', false)

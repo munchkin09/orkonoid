@@ -13,7 +13,7 @@ size = Vector2(4000, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpa0u"]
 radius = 18.0135
-height = 147.95
+height = 146.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gj0pv"]
 animations = [{
@@ -56,7 +56,7 @@ position = Vector2(-1, 16)
 shape = SubResource("RectangleShape2D_wiodc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -1.5865
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qpa0u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

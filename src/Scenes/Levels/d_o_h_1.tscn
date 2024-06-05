@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://oafcwgoic65m"]
+[gd_scene load_steps=9 format=3 uid="uid://oafcwgoic65m"]
 
-[ext_resource type="Script" path="res://src/Scripts/d_o_h.gd" id="1_xoalq"]
+[ext_resource type="Script" path="res://src/Scripts/Levels/d_o_h.gd" id="1_xoalq"]
 [ext_resource type="PackedScene" uid="uid://6ie11o0eq3pl" path="res://src/Scenes/Brick.tscn" id="2_gw6gj"]
 [ext_resource type="PackedScene" uid="uid://djatnd7bki2dk" path="res://src/Scenes/Ball.tscn" id="3_1t1kx"]
 [ext_resource type="PackedScene" uid="uid://51v5p3mx0fcq" path="res://src/Scenes/Puncher.tscn" id="4_tb2f3"]
+[ext_resource type="PackedScene" uid="uid://ckmgq1ttdrc2v" path="res://src/Scenes/score_manager.tscn" id="4_tvark"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_omfqg"]
 b = Vector2(-2, 658)
@@ -18,19 +19,22 @@ b = Vector2(1150, -1)
 script = ExtResource("1_xoalq")
 brick = ExtResource("2_gw6gj")
 ball = ExtResource("3_1t1kx")
+score = ExtResource("4_tvark")
 
 [node name="Puncher" parent="." instance=ExtResource("4_tb2f3")]
 position = Vector2(576, 635)
-collision_mask = 6
+collision_mask = 14
 
 [node name="Ball" parent="." instance=ExtResource("3_1t1kx")]
-position = Vector2(581, 528)
+position = Vector2(581, 607)
 scale = Vector2(0.3, 0.3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 322)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("SegmentShape2D_omfqg")

@@ -8,8 +8,12 @@ func _ready():
 	GameStateMachine.startStateMachine(self)
 
 func _on_level_1_pressed():
-	GameStateMachine.changeSceneTo(path1)
+	prepare_change_level(path1)
 
 
 func _on_level_2_pressed():
-	GameStateMachine.changeSceneTo(path2)
+	prepare_change_level(path2)
+
+func prepare_change_level(path: String):
+	GameStateMachine.changeSceneTo(path)
+	self.visible = false

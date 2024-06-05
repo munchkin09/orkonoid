@@ -25,7 +25,8 @@ func exit():
 func process(_delta):
 	
 	if Input.is_action_pressed('ui_menu'):
-		Transitioned.emit(self, 'startlevelstate')
+		pass
+		#Transitioned.emit(self, 'startlevelstate')
 
 func physics_process(_delta):
 	pass

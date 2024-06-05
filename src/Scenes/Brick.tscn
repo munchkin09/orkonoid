@@ -101,4 +101,4 @@ shape = SubResource("RectangleShape2D_k6ae7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_tavck")
-animation = &"orange_soft"
+animation = &"blue_hard"

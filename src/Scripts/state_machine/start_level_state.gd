@@ -1,15 +1,13 @@
 class_name StartLevelState extends BaseStateClass
 
+var timer = Timer.new()
+
 func enter():
-	#Log.call('Greetings from start level!')
+	print('Greetings from start level!')
 	Transitioned.emit(self, 'playinglevelstate')
 
 func exit():
-	pass
-
-func process(_delta):
-	if Input.is_action_pressed('ui_menu'):
-		Transitioned.emit(self, 'pausestate')
+	super()
 
 func physics_process(_delta):
 	pass

@@ -15,7 +15,7 @@ func _process(_delta):
 
 	if Input.is_key_pressed(KEY_SHIFT):
 		speed_modifier = 150
-	print(direction)
+
 	if direction:
 		if direction == -1:
 			velocity.x = direction * SPEED + (speed_modifier * -1)
@@ -23,7 +23,7 @@ func _process(_delta):
 			velocity.x = direction * SPEED + speed_modifier
 	else:
 		velocity.x = move_toward(velocity.x, 0, (SPEED + speed_modifier))
-	print(velocity.x)
+
 	move_and_slide()
 	position.y = initial_position_y
 	velocity.y = 0
@@ -33,5 +33,11 @@ func reset_level():
 	get_tree().reload_current_scene()
 
 func _on_death_zone_body_entered(body):
-	if body is Ball:
-		reset_level()
+	if not body is Ball:
+		return
+	
+	GameStateMachine.current_state.update_remaining_tries()
+	if GameStateMachine.current_state.remaining_tries == 0:
+		GameStateMachine.current_state.last_ball_lost.emit()
+	print("RESET")
+	body.reset_ball()

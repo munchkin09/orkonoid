@@ -1,4 +1,4 @@
-class_name BaseStateClass extends Node
+class_name BaseStateClass extends Node2D
 
 signal Transitioned
 
